@@ -3,6 +3,7 @@
 	"package": "fr.madu59.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
+		"DebugRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,0 +1,35 @@
+package fr.madu59.mixin.client;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.llamalad7.mixinextras.sugar.Local;
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import fr.madu59.Commands.DebugRendererCommand;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.culling.Frustum;
+import net.minecraft.client.renderer.debug.DebugRenderer;
+import net.minecraft.client.renderer.debug.DebugRenderer.SimpleDebugRenderer;
+import net.minecraft.util.debug.DebugValueAccess;
+
+@Mixin(DebugRenderer.class)
+public abstract class DebugRendererMixin {
+    @Inject(method = "render", at = @At("TAIL"))
+    public void Render(PoseStack poseStack, Frustum frustum, MultiBufferSource.BufferSource bufferSource, double d, double e, double f, boolean bl, CallbackInfo ci, @Local DebugValueAccess debugValueAccess) {
+        if(!bl){
+            List<SimpleDebugRenderer> list = DebugRendererCommand.GetActiveRenderers();
+            Iterator<SimpleDebugRenderer> var14 = list.iterator();
+
+            while(var14.hasNext()) {
+                SimpleDebugRenderer simpleDebugRenderer = (SimpleDebugRenderer)var14.next();
+                simpleDebugRenderer.render(poseStack, bufferSource, d, e, f, debugValueAccess, frustum);
+            }
+        }
+    }
+}

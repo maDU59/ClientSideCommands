@@ -1,8 +1,5 @@
 package fr.madu59.Commands;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
 import fr.madu59.Utils.CommandUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -34,17 +31,6 @@ public class CalcCommand {
                         )
                     )
             ), false);
-    }
-
-    public static String Calc(String input) {
-        ScriptEngineManager mgr = new ScriptEngineManager();
-        ScriptEngine engine = mgr.getEngineByName("JavaScript");
-        try {
-            Object output = engine.eval(input);
-            return output.toString();
-        } catch (Exception e) {
-            return "Invalid expression";
-        }
     }
 
     public static String ParseAndCalc(String input){
