@@ -1,10 +1,22 @@
 package fr.madu59;
 
+import fr.madu59.Commands.CopyPositionCommand;
+import fr.madu59.Commands.CopyRotationCommand;
+import fr.madu59.Commands.PositionCommand;
+import fr.madu59.Commands.RotationCommand;
 import net.fabricmc.api.ClientModInitializer;
 
 public class ClientSideCommandsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
+		RegisterCommands();
+	}
+
+	public void RegisterCommands(){
+		PositionCommand.Register();
+		RotationCommand.Register();
+		CopyPositionCommand.Register();
+		CopyRotationCommand.Register();
 	}
 }
