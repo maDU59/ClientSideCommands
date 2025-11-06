@@ -6,7 +6,6 @@ import java.util.Map;
 
 import fr.madu59.Utils.CommandUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
 
 public class EmojiCommand {
     static Map<String, String> emojiMap = new HashMap<>() {{
@@ -46,6 +45,6 @@ public class EmojiCommand {
     }
 
     public static void WriteEmoji(String emoji){
-        Minecraft.getInstance().player.displayClientMessage(Component.literal(emojiMap.get(emoji)), false);
+        Minecraft.getInstance().getConnection().sendChat(emoji);
     }
 }

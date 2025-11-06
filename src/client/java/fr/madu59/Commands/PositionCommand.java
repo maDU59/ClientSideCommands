@@ -20,7 +20,7 @@ public class PositionCommand {
                 Style.EMPTY
                     .withHoverEvent(
                         new HoverEvent.ShowText(
-                            Component.literal("Click to copy!")
+                            Component.translatable("copy")
                         )
                     )
                     .withClickEvent(

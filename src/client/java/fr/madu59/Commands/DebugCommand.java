@@ -3,7 +3,6 @@ package fr.madu59.Commands;
 import fr.madu59.Utils.CommandUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.debug.DebugScreenEntries;
-import net.minecraft.client.gui.components.debug.DebugScreenEntry;
 import net.minecraft.client.gui.components.debug.DebugScreenEntryStatus;
 import net.minecraft.resources.ResourceLocation;
 

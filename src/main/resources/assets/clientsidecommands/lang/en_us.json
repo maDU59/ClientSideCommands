@@ -1,4 +1,10 @@
 {
     "position-copied":"Position copied to the clipboard!",
-    "rotation-copied":"Rotation copied to the clipboard!"
+    "rotation-copied":"Rotation copied to the clipboard!",
+    "invalid-gamma":"Invalid gamma value!",
+    "gamma-set":"Gamma set to %1$s",
+    "invalid-fov":"Invalid FOV value!",
+    "fov-set":"FOV set to %1$s",
+    "copy":"Click to copy!",
+    "invalid-expression":"Invalid expression"
 }

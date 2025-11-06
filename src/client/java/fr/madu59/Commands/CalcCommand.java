@@ -18,11 +18,11 @@ public class CalcCommand {
         Player player = Minecraft.getInstance().player;
 
         String copy = ParseAndCalc(expression);
-        player.displayClientMessage(Component.literal(copy).withStyle(
+        player.displayClientMessage(Component.translatable(copy).withStyle(
                 Style.EMPTY
                     .withHoverEvent(
                         new HoverEvent.ShowText(
-                            Component.literal("Click to copy!")
+                            Component.translatable("copy")
                         )
                     )
                     .withClickEvent(
@@ -102,7 +102,7 @@ public class CalcCommand {
 
             return String.valueOf(result);
         } catch (Exception e) {
-            return "Invalid expression";
+            return "invalid-expression";
         }
     }
 }
