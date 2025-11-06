@@ -15,6 +15,7 @@ public class PositionCommand {
 
     public static void WritePosition(){
         Player player = Minecraft.getInstance().player;
+        String copy = player.getX() + ", " + player.getY() + ", " + player.getZ();
         player.displayClientMessage(Component.literal("XYZ: " + player.getX() + " / " + player.getY() + " / " + player.getZ()).withStyle(
                 Style.EMPTY
                     .withHoverEvent(
@@ -24,7 +25,7 @@ public class PositionCommand {
                     )
                     .withClickEvent(
                         new ClickEvent.CopyToClipboard(
-                            player.getX() + ", " + player.getY() + ", " + player.getZ()
+                            copy
                         )
                     )
             ), false);

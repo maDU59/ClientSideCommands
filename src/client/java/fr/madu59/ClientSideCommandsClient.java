@@ -1,7 +1,9 @@
 package fr.madu59;
 
+import fr.madu59.Commands.CalcCommand;
 import fr.madu59.Commands.CopyPositionCommand;
 import fr.madu59.Commands.CopyRotationCommand;
+import fr.madu59.Commands.EmojiCommand;
 import fr.madu59.Commands.PositionCommand;
 import fr.madu59.Commands.RotationCommand;
 import net.fabricmc.api.ClientModInitializer;
@@ -18,5 +20,7 @@ public class ClientSideCommandsClient implements ClientModInitializer {
 		RotationCommand.Register();
 		CopyPositionCommand.Register();
 		CopyRotationCommand.Register();
+		EmojiCommand.Register();
+		CalcCommand.Register();
 	}
 }

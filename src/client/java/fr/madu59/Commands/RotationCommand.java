@@ -16,6 +16,7 @@ public class RotationCommand {
 
     public static void WriteRotation(){
         Player player = Minecraft.getInstance().player;
+        String copy = player.getYHeadRot() + ", " + player.getXRot();
         player.displayClientMessage(Component.literal("Facing: " + player.getYHeadRot() + " / " + player.getXRot()).withStyle(
                 Style.EMPTY
                     .withHoverEvent(
@@ -25,7 +26,7 @@ public class RotationCommand {
                     )
                     .withClickEvent(
                         new ClickEvent.CopyToClipboard(
-                            player.getYHeadRot() + ", " + player.getXRot()
+                            copy
                         )
                     )
             ), false);
