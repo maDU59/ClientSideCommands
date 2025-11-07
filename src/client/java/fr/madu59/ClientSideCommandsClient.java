@@ -21,6 +21,7 @@ import fr.madu59.Commands.ReloadRessourcePacksCommand;
 import fr.madu59.Commands.RotationCommand;
 import fr.madu59.Commands.ScreenshotCommand;
 import fr.madu59.Commands.UUIDCommand;
+import fr.madu59.Commands.UpdateWorldIconCommand;
 import fr.madu59.Commands.WikiCommand;
 import net.fabricmc.api.ClientModInitializer;
 
@@ -54,5 +55,6 @@ public class ClientSideCommandsClient implements ClientModInitializer {
 		ReloadRessourcePacksCommand.register();
 		ScreenshotCommand.register();
 		WikiCommand.register();
+		UpdateWorldIconCommand.register();
 	}
 }

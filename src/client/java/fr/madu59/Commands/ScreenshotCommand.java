@@ -1,5 +1,6 @@
 package fr.madu59.Commands;
 
+import fr.madu59.Events.FrameEvent.FrameEnd;
 import fr.madu59.Utils.CommandUtils;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
@@ -41,6 +42,7 @@ public class ScreenshotCommand {
 
     public static void screenshotNoGUI(){
         guiVisibility = client.options.hideGui;
+        chatVisiblity = client.options.chatVisibility().get();
         client.options.hideGui = true;
         pendingScreenshot = true;
     }
@@ -49,17 +51,5 @@ public class ScreenshotCommand {
         client.options.hideGui = guiVisibility;
         client.options.chatVisibility().set(chatVisiblity);
         CommandUtils.feedbackMessage(message);
-    }
-
-    public interface FrameEnd {
-        void onFrameEnd();
-
-        Event<FrameEnd> EVENT = EventFactory.createArrayBacked(FrameEnd.class,
-            (callbacks) -> () -> {
-                for (FrameEnd listener : callbacks) {
-                    listener.onFrameEnd();
-                }
-            }
-        );
     }
 }

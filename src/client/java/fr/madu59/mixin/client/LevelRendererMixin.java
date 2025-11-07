@@ -4,7 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import fr.madu59.Commands.ScreenshotCommand.FrameEnd;
+import fr.madu59.Events.FrameEvent.FrameEnd;
 import net.minecraft.client.gui.render.GuiRenderer;
 
 @Mixin(GuiRenderer.class)
