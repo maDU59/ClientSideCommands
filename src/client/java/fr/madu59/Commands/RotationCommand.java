@@ -13,6 +13,6 @@ public class RotationCommand {
     public static void WriteRotation(){
         Player player = Minecraft.getInstance().player;
         String copy = player.getYHeadRot() + ", " + player.getXRot();
-        CommandUtils.FeedbackMessage(Component.literal("Facing: " + player.getYHeadRot() + " / " + player.getXRot()), copy);
+        CommandUtils.FeedbackMessage(Component.literal("YX: " + player.getYHeadRot() + " / " + player.getXRot()), copy);
     }
 }

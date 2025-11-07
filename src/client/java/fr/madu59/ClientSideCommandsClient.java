@@ -10,6 +10,8 @@ import fr.madu59.Commands.EmojiCommand;
 import fr.madu59.Commands.FOVCommand;
 import fr.madu59.Commands.GammaCommand;
 import fr.madu59.Commands.LookAtCommand;
+import fr.madu59.Commands.NetherCoordinatesCommand;
+import fr.madu59.Commands.OverworldCoordinatesCommand;
 import fr.madu59.Commands.PositionCommand;
 import fr.madu59.Commands.RotationCommand;
 import fr.madu59.Commands.UUIDCommand;
@@ -36,5 +38,7 @@ public class ClientSideCommandsClient implements ClientModInitializer {
 		GammaCommand.Register();
 		UUIDCommand.Register();
 		LookAtCommand.Register();
+		NetherCoordinatesCommand.Register();
+		OverworldCoordinatesCommand.Register();
 	}
 }
