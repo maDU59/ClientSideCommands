@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 
 public class FOVCommand {
     public static void Register(){
-        CommandUtils.RegisterOneArg("set-fov", FOVCommand::SetFOV);
+        CommandUtils.RegisterOneArg("set fov", FOVCommand::SetFOV);
     }
 
     public static void SetFOV(String fov){
@@ -21,6 +21,6 @@ public class FOVCommand {
             return;
         }
         Minecraft.getInstance().options.fov().value = value;
-        player.displayClientMessage(Component.translatable("fov-set", fov), false);
+        CommandUtils.FeedbackMessage(Component.translatable("fov-set", fov));
     }
 }

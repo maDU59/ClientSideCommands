@@ -30,6 +30,7 @@ import net.minecraft.client.renderer.debug.StructureRenderer;
 import net.minecraft.client.renderer.debug.SupportBlockRenderer;
 import net.minecraft.client.renderer.debug.VillageSectionsDebugRenderer;
 import net.minecraft.client.renderer.debug.WaterDebugRenderer;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.world.level.LightLayer;
 
 public class DebugRendererCommand {
@@ -44,16 +45,17 @@ public class DebugRendererCommand {
     public static void Register(){
         CreateRenderers();
         List<String> options = rendererNames.keySet().stream().toList();
-        CommandUtils.RegisterOneArg("toggle-debug-renderer", options, DebugRendererCommand::ToggleRenderer);
+        CommandUtils.RegisterOneArg("toggle debugrenderer", options, DebugRendererCommand::ToggleRenderer);
     }
 
     public static void ToggleRenderer(String name){
         Boolean status = rendererStatus.get(name);
         if(status == null) {
-            Minecraft.getInstance().player.displayClientMessage(Component.translatable("Invalid debug renderer"), false);
+            CommandUtils.FeedbackMessage(Component.translatable("invalid-argument"));
             return;
         }
         rendererStatus.put(name, !status);
+        CommandUtils.FeedbackMessage(Component.literal("Debug Renderer '" + name + "' " + (!status ? I18n.get("enabled") : I18n.get("disabled"))));
     }
 
     public static List<SimpleDebugRenderer> GetActiveRenderers(){

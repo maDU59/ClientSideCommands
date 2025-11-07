@@ -7,13 +7,13 @@ import net.minecraft.world.entity.player.Player;
 
 public class CopyPositionCommand {
     public static void Register(){
-        CommandUtils.RegisterSimple("copy-position", CopyPositionCommand::CopyPosition);
+        CommandUtils.RegisterSimple("copy pos", CopyPositionCommand::CopyPosition);
     }
 
     public static void CopyPosition(){
         Minecraft client = Minecraft.getInstance();
         Player player = client.player;
         client.keyboardHandler.setClipboard(player.getX() + ", " + player.getY() + ", " + player.getZ());
-        player.displayClientMessage(Component.translatable("position-copied"), false);
+        CommandUtils.FeedbackMessage(Component.translatable("position-copied"));
     }
 }

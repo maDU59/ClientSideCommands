@@ -1,12 +1,7 @@
 package fr.madu59.Commands;
 
 import fr.madu59.Utils.CommandUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.HoverEvent;
-import net.minecraft.network.chat.Style;
 
 public class CalcCommand {
     public static void Register(){
@@ -15,22 +10,9 @@ public class CalcCommand {
     }
 
     public static void WriteCalcResult(String expression){
-        Player player = Minecraft.getInstance().player;
 
         String copy = ParseAndCalc(expression);
-        player.displayClientMessage(Component.translatable(copy).withStyle(
-                Style.EMPTY
-                    .withHoverEvent(
-                        new HoverEvent.ShowText(
-                            Component.translatable("copy")
-                        )
-                    )
-                    .withClickEvent(
-                        new ClickEvent.CopyToClipboard(
-                            copy
-                        )
-                    )
-            ), false);
+        CommandUtils.FeedbackMessage(Component.literal(copy), copy);
     }
 
     public static String ParseAndCalc(String input){

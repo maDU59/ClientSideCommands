@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 
 public class GammaCommand {
     public static void Register(){
-        CommandUtils.RegisterOneArg("set-gamma", GammaCommand::SetGamma);
+        CommandUtils.RegisterOneArg("set gamma", GammaCommand::SetGamma);
     }
 
     public static void SetGamma(String gamma){
@@ -21,6 +21,6 @@ public class GammaCommand {
             return;
         }
         Minecraft.getInstance().options.gamma().value = value;
-        player.displayClientMessage(Component.translatable("gamma-set", gamma), false);
+        CommandUtils.FeedbackMessage(Component.translatable("gamma-set", gamma));
     }
 }
