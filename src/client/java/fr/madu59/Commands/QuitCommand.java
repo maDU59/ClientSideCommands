@@ -9,6 +9,6 @@ public class QuitCommand {
     }
 
     public static void quit(){
-        Minecraft.getInstance().disconnect();
+        Minecraft.getInstance().clearLevel();
     }
 }

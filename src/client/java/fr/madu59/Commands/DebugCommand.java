@@ -1,10 +1,8 @@
 package fr.madu59.Commands;
 
 import fr.madu59.Utils.CommandUtils;
-import net.minecraft.client.KeyboardHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.resources.ResourceLocation;
 
 public class DebugCommand {
 
@@ -26,8 +24,8 @@ public class DebugCommand {
     }
 
     public static void toggleF3(){
-        client.getDebugOverlay().toggleOverlay();
-        CommandUtils.feedbackMessage(I18n.get("F3-menu"), client.getDebugOverlay().renderDebug);
+        client.options.renderDebug = !client.options.renderDebug;
+        CommandUtils.feedbackMessage(I18n.get("F3-menu"), client.options.renderDebug);
     }
 
     public static void toggleWireframe(){
