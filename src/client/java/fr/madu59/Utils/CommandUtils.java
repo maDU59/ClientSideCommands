@@ -155,12 +155,14 @@ public class CommandUtils {
         Minecraft.getInstance().player.displayClientMessage(((MutableComponent)message).withStyle(
                 Style.EMPTY
                     .withHoverEvent(
-                        new HoverEvent.ShowText(
+                        new HoverEvent(
+                            HoverEvent.Action.SHOW_TEXT,
                             Component.translatable("copy")
                         )
                     )
                     .withClickEvent(
-                        new ClickEvent.CopyToClipboard(
+                        new ClickEvent(
+                            ClickEvent.Action.COPY_TO_CLIPBOARD,
                             copy
                         )
                     )
