@@ -2,7 +2,6 @@ package fr.madu59.Commands;
 
 import fr.madu59.Utils.CommandUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
 
 public class QuitCommand {
     public static void register(){
@@ -10,6 +9,6 @@ public class QuitCommand {
     }
 
     public static void quit(){
-        Minecraft.getInstance().disconnectFromWorld(Component.translatable("quitting-world"));
+        Minecraft.getInstance().disconnect();
     }
 }
