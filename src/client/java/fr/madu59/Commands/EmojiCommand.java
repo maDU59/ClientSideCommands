@@ -9,14 +9,14 @@ import net.minecraft.client.Minecraft;
 
 public class EmojiCommand {
     static Map<String, String> emojiMap = new HashMap<>() {{
-        put("(⊙ _ ⊙ )","(⊙ _ ⊙ )");
-        put("¯\\_(ツ)_/¯","¯\\_(ツ)_/¯");
-        put("(╯°□°）╯︵ ┻━┻","(╯°□°）╯︵ ┻━┻");
-        put("┬─┬ ノ( ゜-゜ノ)","┬─┬ ノ( ゜-゜ノ)");
-        put("ʕ•ᴥ•ʔ","ʕ•ᴥ•ʔ");
-        put("ಠ_ಠ","ಠ_ಠ");
-        put("♥‿♥","♥‿♥");
-        put("◕‿◕","◕‿◕");
+        put("surprised","(⊙ _ ⊙ )");
+        put("shrug","¯\\_(ツ)_/¯");
+        put("tablefilp","(╯°□°）╯︵ ┻━┻");
+        put("unflip","┬─┬ ノ( ゜-゜ノ)");
+        put("bear","ʕ•ᴥ•ʔ");
+        put("disapproval","ಠ_ಠ");
+        put("love","♥‿♥");
+        put("happy","◕‿◕");
         put("smile", "😀");
         put("laughing", "😂");
         put("sweat_smile", "😅");
@@ -45,6 +45,6 @@ public class EmojiCommand {
     }
 
     public static void writeEmoji(String emoji){
-        Minecraft.getInstance().getConnection().sendChat(emoji);
+        Minecraft.getInstance().getConnection().sendChat(emojiMap.get(emoji));
     }
 }
