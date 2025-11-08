@@ -1,10 +1,8 @@
 package fr.madu59.Commands;
 
 import fr.madu59.Utils.CommandUtils;
-import net.minecraft.client.KeyboardHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.resources.ResourceLocation;
 
 public class DebugCommand {
 

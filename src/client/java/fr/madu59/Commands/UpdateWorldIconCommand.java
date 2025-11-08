@@ -30,32 +30,33 @@ public class UpdateWorldIconCommand {
                 lastCaptureTime = System.currentTimeMillis();
 
                 if(client.getSingleplayerServer() != null && client.isSingleplayer() && client.player != null){
-                    NativeImage nativeImage = Screenshot.takeScreenshot(client.getMainRenderTarget());
-                    Path path = client.getSingleplayerServer().getWorldPath(LevelResource.ICON_FILE);
+                    Screenshot.takeScreenshot(client.getMainRenderTarget(), (NativeImage nativeImage) -> {
+                        Path path = client.getSingleplayerServer().getWorldPath(LevelResource.ICON_FILE);
 
-                    Util.ioPool().execute(() -> {
-                        int i = nativeImage.getWidth();
-                        int j = nativeImage.getHeight();
-                        int k = 0;
-                        int l = 0;
-                        if (i > j) {
-                            k = (i - j) / 2;
-                            i = j;
-                        } else {
-                            l = (j - i) / 2;
-                            j = i;
-                        }
+                        Util.ioPool().execute(() -> {
+                            int i = nativeImage.getWidth();
+                            int j = nativeImage.getHeight();
+                            int k = 0;
+                            int l = 0;
+                            if (i > j) {
+                                k = (i - j) / 2;
+                                i = j;
+                            } else {
+                                l = (j - i) / 2;
+                                j = i;
+                            }
 
-                        try (NativeImage resized = new NativeImage(64, 64, false)) {
-                            nativeImage.resizeSubRectTo(k, l, i, j, resized);
-                            resized.writeToFile(path);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                            CommandUtils.feedbackMessage(Component.translatable("error"));
-                            return;
-                        } finally {
-                            nativeImage.close();
-                        }
+                            try (NativeImage resized = new NativeImage(64, 64, false)) {
+                                nativeImage.resizeSubRectTo(k, l, i, j, resized);
+                                resized.writeToFile(path);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                CommandUtils.feedbackMessage(Component.translatable("error"));
+                                return;
+                            } finally {
+                                nativeImage.close();
+                            }
+                        });
                     });
                     postScreenshot(null, guiVisibility);
                 }

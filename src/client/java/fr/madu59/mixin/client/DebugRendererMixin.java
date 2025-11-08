@@ -12,13 +12,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import fr.madu59.Commands.DebugRendererCommand;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.debug.DebugRenderer;
 import net.minecraft.client.renderer.debug.DebugRenderer.SimpleDebugRenderer;
 
 @Mixin(DebugRenderer.class)
 public abstract class DebugRendererMixin {
     @Inject(method = "render", at = @At("TAIL"))
-    public void render(PoseStack poseStack, MultiBufferSource.BufferSource bufferSource, double d, double e, double f, CallbackInfo ci) {
+    public void render(PoseStack poseStack, Frustum frustum, MultiBufferSource.BufferSource bufferSource, double d, double e, double f, CallbackInfo ci) {
         List<SimpleDebugRenderer> list = DebugRendererCommand.GetActiveRenderers();
         Iterator<SimpleDebugRenderer> var14 = list.iterator();
 
