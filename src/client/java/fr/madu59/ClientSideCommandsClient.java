@@ -5,6 +5,7 @@ import fr.madu59.Commands.ClearChatCommand;
 import fr.madu59.Commands.CopyPositionCommand;
 import fr.madu59.Commands.CopyRotationCommand;
 import fr.madu59.Commands.CopyUUIDCommand;
+import fr.madu59.Commands.DateCommand;
 import fr.madu59.Commands.DebugCommand;
 import fr.madu59.Commands.DebugRendererCommand;
 import fr.madu59.Commands.EmojiCommand;
@@ -56,5 +57,6 @@ public class ClientSideCommandsClient implements ClientModInitializer {
 		ScreenshotCommand.register();
 		WikiCommand.register();
 		UpdateWorldIconCommand.register();
+		DateCommand.register();
 	}
 }

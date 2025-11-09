@@ -27,5 +27,6 @@
     "chunks-reloaded":"Chunks reloaded!",
     "debug-menu":"Debug Menu",
     "worldicon-updated":"World icon updated!",
-    "post-effect":"Post Effect"
+    "post-effect":"Post Effect",
+    "time-value":"Days: %1$s, Hours: %2$s, Minutes: %3$s"
 }
