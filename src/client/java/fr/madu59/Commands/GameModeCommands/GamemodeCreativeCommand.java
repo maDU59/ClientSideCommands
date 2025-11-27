@@ -3,8 +3,8 @@ package fr.madu59.Commands.GameModeCommands;
 import fr.madu59.Commands.GameModeCommands.Util.GameModeUtils;
 import fr.madu59.Utils.CommandUtils;
 
-public class GmCCommand {
+public class GamemodeCreativeCommand {
     public static void register() {
-        CommandUtils.registerSimple("gmc", () -> GameModeUtils.changeGameMode("gmc"));
+        CommandUtils.registerSimpleLvl2("gmc", () -> GameModeUtils.changeGameMode("gmc"));
     }
 }

@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 
 public class LookAtCommand {
     public static void register(){
-        CommandUtils.registerTwoArgs("lookat", LookAtCommand::lookAt);
+        CommandUtils.registerTwoArgsFloat("lookat", LookAtCommand::lookAt);
     }
 
     public static void lookAt(float yaw, float pitch){

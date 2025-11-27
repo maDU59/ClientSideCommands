@@ -4,6 +4,9 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.*;
 
 import java.util.List;
 
+import com.mojang.authlib.minecraft.client.MinecraftClient;
+import com.mojang.brigadier.arguments.FloatArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
@@ -45,6 +48,19 @@ public class CommandUtils {
                         return 1;
                     })
                 )
+            );
+        });
+    }
+
+    public static void registerSimpleLvl2(String commandName, Runnable action){
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(
+                literal(commandName)
+                .requires(source -> source.getClient().player.hasPermissions(2))
+                .executes(context -> {
+                    action.run();
+                    return 1;
+                })
             );
         });
     }
@@ -119,7 +135,28 @@ public class CommandUtils {
         });
     }
 
-    public static void registerTwoArgs(String commandName, java.util.function.BiConsumer<Float, Float> action){
+    public static void registerOneArgInt(String commandName, java.util.function.Consumer<Integer> action){
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(
+                literal(commandName)
+                .then(argument("arg1", IntegerArgumentType.integer())
+                    .executes(context -> {
+                        try{
+                            int arg1 = IntegerArgumentType.getInteger(context, "arg1");
+                            action.accept(arg1);
+                            return 1;
+                        }
+                        catch(Exception e){
+                            feedbackMessage(Component.translatable("invalid-argument"));
+                            return 0;
+                        }
+                    })
+                )
+            );
+        });
+    }
+
+    public static void registerTwoArgs(String commandName, java.util.function.BiConsumer<String, String> action){
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             dispatcher.register(
                 literal(commandName)
@@ -127,13 +164,61 @@ public class CommandUtils {
                     .then(argument("arg2", StringArgumentType.string())
                         .executes(context -> {
                             try{
-                                float arg1 = Float.parseFloat(StringArgumentType.getString(context, "arg1"));
-                                float arg2 = Float.parseFloat(StringArgumentType.getString(context, "arg2"));
+                                String arg1 = StringArgumentType.getString(context, "arg1");
+                                String arg2 = StringArgumentType.getString(context, "arg2");
                                 action.accept(arg1, arg2);
                                 return 1;
                             }
                             catch(Exception e){
-                                feedbackMessage(Component.translatable("invalid-argument"));
+                                feedbackMessage(Component.translatable("invalid-arguments"));
+                                return 0;
+                            }
+                        })
+                    )
+                )
+            );
+        });
+    }
+
+    public static void registerTwoArgsFloat(String commandName, java.util.function.BiConsumer<Float, Float> action){
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(
+                literal(commandName)
+                .then(argument("arg1", FloatArgumentType.floatArg())
+                    .then(argument("arg2", FloatArgumentType.floatArg())
+                        .executes(context -> {
+                            try{
+                                float arg1 = FloatArgumentType.getFloat(context, "arg1");
+                                float arg2 = FloatArgumentType.getFloat(context, "arg2");
+                                action.accept(arg1, arg2);
+                                return 1;
+                            }
+                            catch(Exception e){
+                                feedbackMessage(Component.translatable("invalid-arguments"));
+                                return 0;
+                            }
+                        })
+                    )
+                )
+            );
+        });
+    }
+
+    public static void registerTwoArgsInt(String commandName, java.util.function.BiConsumer<Integer, Integer> action){
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(
+                literal(commandName)
+                .then(argument("arg1", IntegerArgumentType.integer())
+                    .then(argument("arg2", IntegerArgumentType.integer())
+                        .executes(context -> {
+                            try{
+                                int arg1 = IntegerArgumentType.getInteger(context, "arg1");
+                                int arg2 = IntegerArgumentType.getInteger(context, "arg2");
+                                action.accept(arg1, arg2);
+                                return 1;
+                            }
+                            catch(Exception e){
+                                feedbackMessage(Component.translatable("invalid-arguments"));
                                 return 0;
                             }
                         })

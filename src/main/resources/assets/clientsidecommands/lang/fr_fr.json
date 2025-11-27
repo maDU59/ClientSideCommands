@@ -7,7 +7,9 @@
     "copy": "Cliquer pour copier !",
     "invalid-expression": "Expression invalide !",
     "invalid-argument": "Argument invalide !",
+    "invalid-arguments": "Arguments invalides !",
     "invalid-value": "Valeur invalide !",
+    "invalid-values": "Valeurs invalides !",
     "error": "Une erreur est survenue !",
     "3D-crosshair": "Réticule 3D",
     "fps-display": "Affichage des IPS",
@@ -27,5 +29,6 @@
     "chunks-reloaded": "Chunks rechargés !",
     "debug-menu": "Menu de débogage",
     "worldicon-updated": "Icône du monde mise à jour !",
-    "time-value": "Jours : %1$s, Heures : %2$s, Minutes : %3$s"
+    "time-value": "Jours : %1$s, Heures : %2$s, Minutes : %3$s",
+    "stacks-result":"%1$s items = %2$s stacks of %3$s items + %4$s items."
 }

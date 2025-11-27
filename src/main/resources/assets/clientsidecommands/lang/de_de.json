@@ -7,7 +7,9 @@
   "copy": "Zum Kopieren klicken!",
   "invalid-expression": "Ungültiger Ausdruck!",
   "invalid-argument": "Ungültiges Argument!",
+  "invalid-arguments": "Ungültiges Arguments!",
   "invalid-value": "Ungültiger Wert!",
+  "invalid-values": "Ungültiger Werts!",
   "error": "Ein Fehler ist aufgetreten!",
   "3D-crosshair": "3D-Crosshair",
   "fps-display": "FPS-Anzeige",
@@ -27,5 +29,6 @@
   "chunks-reloaded": "Chunks neu geladen!",
   "debug-menu": "Debug-Menü",
   "worldicon-updated": "Weltsymbol aktualisiert!",
-  "time-value": "Tage: %1$s, Stunden: %2$s, Minuten: %3$s"
+  "time-value": "Tage: %1$s, Stunden: %2$s, Minuten: %3$s",
+  "stacks-result":"%1$s Gegenstände = %2$s Stapel à %3$s Gegenstände + %4$s Gegenstände."
 }

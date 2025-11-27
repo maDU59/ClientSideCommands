@@ -1,5 +1,7 @@
 package fr.madu59;
 
+import java.util.Stack;
+
 import fr.madu59.Commands.CalcCommand;
 import fr.madu59.Commands.ClearChatCommand;
 import fr.madu59.Commands.CopyPositionCommand;
@@ -9,10 +11,10 @@ import fr.madu59.Commands.DebugCommand;
 import fr.madu59.Commands.DebugRendererCommand;
 import fr.madu59.Commands.EmojiCommand;
 import fr.madu59.Commands.FOVCommand;
-import fr.madu59.Commands.GameModeCommands.GmACommand;
-import fr.madu59.Commands.GameModeCommands.GmCCommand;
-import fr.madu59.Commands.GameModeCommands.GmSCommand;
-import fr.madu59.Commands.GameModeCommands.GmSpecCommand;
+import fr.madu59.Commands.GameModeCommands.GamemodeAdventureCommand;
+import fr.madu59.Commands.GameModeCommands.GamemodeCreativeCommand;
+import fr.madu59.Commands.GameModeCommands.GamemodeSurvivalCommand;
+import fr.madu59.Commands.GameModeCommands.GamemodeSpectatorCommand;
 import fr.madu59.Commands.GammaCommand;
 import fr.madu59.Commands.HUDScaleCommand;
 import fr.madu59.Commands.LookAtCommand;
@@ -24,6 +26,7 @@ import fr.madu59.Commands.ReloadChunksCommand;
 import fr.madu59.Commands.ReloadRessourcePacksCommand;
 import fr.madu59.Commands.RotationCommand;
 import fr.madu59.Commands.ScreenshotCommand;
+import fr.madu59.Commands.StackCommand;
 import fr.madu59.Commands.DateCommand;
 import fr.madu59.Commands.UUIDCommand;
 import fr.madu59.Commands.UpdateWorldIconCommand;
@@ -62,9 +65,10 @@ public class ClientSideCommandsClient implements ClientModInitializer {
 		WikiCommand.register();
 		UpdateWorldIconCommand.register();
 		DateCommand.register();
-        GmCCommand.register();
-        GmSCommand.register();
-        GmSpecCommand.register();
-        GmACommand.register();
+        GamemodeCreativeCommand.register();
+        GamemodeSurvivalCommand.register();
+        GamemodeSpectatorCommand.register();
+        GamemodeAdventureCommand.register();
+		StackCommand.register();
 	}
 }

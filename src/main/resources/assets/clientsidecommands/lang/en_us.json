@@ -7,7 +7,9 @@
     "copy":"Click to copy!",
     "invalid-expression":"Invalid expression!",
     "invalid-argument":"Invalid argument!",
+    "invalid-arguments":"Invalid arguments!",
     "invalid-value":"Invalid value!",
+    "invalid-values":"Invalid values!",
     "error":"An error occured!",
     "3D-crosshair":"3D Crosshair",
     "fps-display":"FPS Display",
@@ -27,5 +29,6 @@
     "chunks-reloaded":"Chunks reloaded!",
     "debug-menu":"Debug Menu",
     "worldicon-updated":"World icon updated!",
-    "time-value":"Days: %1$s, Hours: %2$s, Minutes: %3$s"
+    "time-value":"Days: %1$s, Hours: %2$s, Minutes: %3$s",
+    "stacks-result":"%1$s items = %2$s stacks of %3$s items + %4$s items."
 }
