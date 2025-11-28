@@ -5,6 +5,6 @@ import fr.madu59.Utils.CommandUtils;
 
 public class GamemodeAdventureCommand {
     public static void register() {
-        CommandUtils.registerSimpleLvl2("gma", () -> GameModeUtils.changeGameMode("gma"));
+        CommandUtils.registerSimpleLvl2("gma", () -> GameModeUtils.changeGameMode("adventure"));
     }
 }

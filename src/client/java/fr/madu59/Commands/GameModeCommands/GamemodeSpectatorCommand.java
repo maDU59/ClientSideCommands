@@ -5,6 +5,6 @@ import fr.madu59.Utils.CommandUtils;
 
 public class GamemodeSpectatorCommand {
     public static void register() {
-        CommandUtils.registerSimpleLvl2("gmspec", () -> GameModeUtils.changeGameMode("gmspec"));
+        CommandUtils.registerSimpleLvl2("gmspec", () -> GameModeUtils.changeGameMode("spectator"));
     }
 }

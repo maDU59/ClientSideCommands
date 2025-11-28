@@ -5,6 +5,6 @@ import fr.madu59.Utils.CommandUtils;
 
 public class GamemodeSurvivalCommand {
     public static void register() {
-        CommandUtils.registerSimpleLvl2("gms", () -> GameModeUtils.changeGameMode("gms"));
+        CommandUtils.registerSimpleLvl2("gms", () -> GameModeUtils.changeGameMode("survival"));
     }
 }
