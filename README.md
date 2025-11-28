@@ -41,6 +41,10 @@ Adds a bunch of useful non-cheat clientside commands to your game such as
     <li><b>/toggle f3menu (/f3)</b> : toggle the f3 menu, useful for keyboards without the f3 key</li>
     <li><b>/toggle fog</b> : toggle in-game fog</li>
     <li><b>/wiki</b> : open the wiki's page of the held item</li>
+    <li><b>/gmc</b> : shortcut for /gamemode creative</li>
+    <li><b>/gms</b> : shortcut for /gamemode survival</li>
+    <li><b>/gma</b> : shortcut for /gamemode adventure</li>
+    <li><b>/gmspec</b> : shortcut for /gamemode spectator</li>
    <li>All the /copy command arguments also exists as standalone command to display the value</li>
  </ul>
 </details>
