@@ -4,7 +4,6 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.*;
 
 import java.util.List;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;

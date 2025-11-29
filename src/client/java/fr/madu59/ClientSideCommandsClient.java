@@ -1,7 +1,5 @@
 package fr.madu59;
 
-import java.util.Stack;
-
 import fr.madu59.Commands.CalcCommand;
 import fr.madu59.Commands.ClearChatCommand;
 import fr.madu59.Commands.CopyPositionCommand;
