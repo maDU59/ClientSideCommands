@@ -11,14 +11,20 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
+import net.minecraft.server.permissions.Permission;
+import net.minecraft.server.permissions.PermissionCheck;
+import net.minecraft.server.permissions.PermissionLevel;
 
 public class CommandUtils {
+
+    public static final Permission CREATIVE_MODE = new Permission.HasCommandLevel(PermissionLevel.MODERATORS);
     
     public static void registerSimple(String commandName, Runnable action){
         String[] commandNameSplit = commandName.split(" ");
@@ -55,7 +61,7 @@ public class CommandUtils {
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             dispatcher.register(
                 literal(commandName)
-                .requires(source -> source.getClient().player.hasPermissions(2))
+                .requires(Commands.hasPermission(new PermissionCheck.Require(CREATIVE_MODE)))
                 .executes(context -> {
                     action.run();
                     return 1;

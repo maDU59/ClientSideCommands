@@ -1,7 +1,7 @@
 package fr.madu59.Commands;
 
 import fr.madu59.Utils.CommandUtils;
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.InteractionHand;

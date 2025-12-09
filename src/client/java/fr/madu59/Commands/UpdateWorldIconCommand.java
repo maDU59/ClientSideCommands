@@ -7,7 +7,7 @@ import com.mojang.blaze3d.platform.NativeImage;
 
 import fr.madu59.Events.FrameEvent.FrameEnd;
 import fr.madu59.Utils.CommandUtils;
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
 import net.minecraft.network.chat.Component;

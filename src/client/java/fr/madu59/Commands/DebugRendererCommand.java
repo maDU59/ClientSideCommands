@@ -17,7 +17,6 @@ import net.minecraft.client.renderer.debug.DebugRenderer.SimpleDebugRenderer;
 import net.minecraft.client.renderer.debug.GameEventListenerRenderer;
 import net.minecraft.client.renderer.debug.GoalSelectorDebugRenderer;
 import net.minecraft.client.renderer.debug.HeightMapRenderer;
-import net.minecraft.client.renderer.debug.LightDebugRenderer;
 import net.minecraft.client.renderer.debug.LightSectionDebugRenderer;
 import net.minecraft.client.renderer.debug.NeighborsUpdateRenderer;
 import net.minecraft.client.renderer.debug.EntityBlockIntersectionDebugRenderer;
@@ -79,7 +78,6 @@ public class DebugRendererCommand {
         addRenderer(new CollisionBoxRenderer(client), "collisionboxes");
         addRenderer(new NeighborsUpdateRenderer(), "neighborsupdates");
         addRenderer(new StructureRenderer(), "structures");
-        addRenderer(new LightDebugRenderer(client), "lights");
         addRenderer(new BreezeDebugRenderer(client), "breezes");
         addRenderer(new LightSectionDebugRenderer(client, LightLayer.SKY), "lightsections");
         addRenderer(new BeeDebugRenderer(client), "bees");

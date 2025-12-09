@@ -7,7 +7,7 @@ import net.minecraft.client.gui.components.debug.DebugScreenEntryStatus;
 import net.minecraft.client.gui.screens.debug.DebugOptionsScreen;
 import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class DebugCommand {
 
@@ -54,8 +54,8 @@ public class DebugCommand {
     }
 
     public static void toggleF3(){
-        client.debugEntries.toggleF3Visible();
-        CommandUtils.feedbackMessage(I18n.get("F3-menu"), client.debugEntries.isF3Visible());
+        client.debugEntries.toggleDebugOverlay();
+        CommandUtils.feedbackMessage(I18n.get("F3-menu"), client.debugEntries.isOverlayVisible());
     }
 
     public static void toggleWireframe(){
@@ -85,9 +85,9 @@ public class DebugCommand {
         }
     }
 
-    public static DebugScreenEntryStatus alternateToggle(ResourceLocation entry){
+    public static DebugScreenEntryStatus alternateToggle(Identifier entry){
         if (client.debugEntries.getStatus(entry) == DebugScreenEntryStatus.ALWAYS_ON) {
-            return DebugScreenEntryStatus.IN_F3;
+            return DebugScreenEntryStatus.IN_OVERLAY;
         } else {
             return DebugScreenEntryStatus.ALWAYS_ON;
         }
